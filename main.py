@@ -4,7 +4,7 @@ from selenium.webdriver.chrome.options import Options
 from hp_printer_ip_list import ips
 from color_printer_xpaths import ink_colors
 
-chromedriver = r"C:\Users\luis\Documents\Projects\Query Printers\chromedriver.exe"
+chromedriver = r"C:\Users\'username'\Documents\Projects\Query Printers\chromedriver.exe"
 
 chrome_options = Options()
 chrome_options.set_capability("acceptInsecureCerts", True)  # Makes it so Chrome does not show a SSL certificate error
@@ -29,8 +29,8 @@ def hp_printers():
                 print(f"Black Ink level is at {ink_level.text.replace('*', '')}")
             else:
                 ink_level = driver.find_element_by_xpath('//*[@id="blackInkLevel"]/div[2]/span')
-                print(ink_level.get_attribute(
-                    "textContent"))  # "textContent" used because text isn't displayed on the website (hidden).
+                 # "textContent" used because text isn't displayed on the website (hidden).
+                print(ink_level.get_attribute("textContent")) 
             print("\n")
         except WebDriverException as e:
             print("There was an error.")
